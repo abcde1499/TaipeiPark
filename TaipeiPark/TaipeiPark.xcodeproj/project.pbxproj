@@ -1,0 +1,335 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B6C23B551EC08AB200785DFA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B6C23B541EC08AB200785DFA /* main.m */; };
+		B6C23B581EC08AB200785DFA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B6C23B571EC08AB200785DFA /* AppDelegate.m */; };
+		B6C23B5B1EC08AB200785DFA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6C23B5A1EC08AB200785DFA /* ViewController.m */; };
+		B6C23B5E1EC08AB200785DFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6C23B5C1EC08AB200785DFA /* Main.storyboard */; };
+		B6C23B611EC08AB200785DFA /* TaipeiPark.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B6C23B5F1EC08AB200785DFA /* TaipeiPark.xcdatamodeld */; };
+		B6C23B631EC08AB200785DFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6C23B621EC08AB200785DFA /* Assets.xcassets */; };
+		B6C23B661EC08AB200785DFA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6C23B641EC08AB200785DFA /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		B6C23B501EC08AB100785DFA /* TaipeiPark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaipeiPark.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6C23B541EC08AB200785DFA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B6C23B561EC08AB200785DFA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		B6C23B571EC08AB200785DFA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B6C23B591EC08AB200785DFA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		B6C23B5A1EC08AB200785DFA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		B6C23B5D1EC08AB200785DFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B6C23B601EC08AB200785DFA /* TaipeiPark.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TaipeiPark.xcdatamodel; sourceTree = "<group>"; };
+		B6C23B621EC08AB200785DFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B6C23B651EC08AB200785DFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B6C23B671EC08AB200785DFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B6C23B4D1EC08AB100785DFA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B6C23B471EC08AB100785DFA = {
+			isa = PBXGroup;
+			children = (
+				B6C23B521EC08AB100785DFA /* TaipeiPark */,
+				B6C23B511EC08AB100785DFA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B6C23B511EC08AB100785DFA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B6C23B501EC08AB100785DFA /* TaipeiPark.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B6C23B521EC08AB100785DFA /* TaipeiPark */ = {
+			isa = PBXGroup;
+			children = (
+				B6C23B561EC08AB200785DFA /* AppDelegate.h */,
+				B6C23B571EC08AB200785DFA /* AppDelegate.m */,
+				B6C23B591EC08AB200785DFA /* ViewController.h */,
+				B6C23B5A1EC08AB200785DFA /* ViewController.m */,
+				B6C23B5C1EC08AB200785DFA /* Main.storyboard */,
+				B6C23B621EC08AB200785DFA /* Assets.xcassets */,
+				B6C23B641EC08AB200785DFA /* LaunchScreen.storyboard */,
+				B6C23B671EC08AB200785DFA /* Info.plist */,
+				B6C23B5F1EC08AB200785DFA /* TaipeiPark.xcdatamodeld */,
+				B6C23B531EC08AB200785DFA /* Supporting Files */,
+			);
+			path = TaipeiPark;
+			sourceTree = "<group>";
+		};
+		B6C23B531EC08AB200785DFA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B6C23B541EC08AB200785DFA /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B6C23B4F1EC08AB100785DFA /* TaipeiPark */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B6C23B6A1EC08AB200785DFA /* Build configuration list for PBXNativeTarget "TaipeiPark" */;
+			buildPhases = (
+				B6C23B4C1EC08AB100785DFA /* Sources */,
+				B6C23B4D1EC08AB100785DFA /* Frameworks */,
+				B6C23B4E1EC08AB100785DFA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TaipeiPark;
+			productName = TaipeiPark;
+			productReference = B6C23B501EC08AB100785DFA /* TaipeiPark.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B6C23B481EC08AB100785DFA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = home;
+				TargetAttributes = {
+					B6C23B4F1EC08AB100785DFA = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = B6C23B4B1EC08AB100785DFA /* Build configuration list for PBXProject "TaipeiPark" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B6C23B471EC08AB100785DFA;
+			productRefGroup = B6C23B511EC08AB100785DFA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B6C23B4F1EC08AB100785DFA /* TaipeiPark */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B6C23B4E1EC08AB100785DFA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B6C23B661EC08AB200785DFA /* LaunchScreen.storyboard in Resources */,
+				B6C23B631EC08AB200785DFA /* Assets.xcassets in Resources */,
+				B6C23B5E1EC08AB200785DFA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B6C23B4C1EC08AB100785DFA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B6C23B5B1EC08AB200785DFA /* ViewController.m in Sources */,
+				B6C23B611EC08AB200785DFA /* TaipeiPark.xcdatamodeld in Sources */,
+				B6C23B581EC08AB200785DFA /* AppDelegate.m in Sources */,
+				B6C23B551EC08AB200785DFA /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B6C23B5C1EC08AB200785DFA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B6C23B5D1EC08AB200785DFA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B6C23B641EC08AB200785DFA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B6C23B651EC08AB200785DFA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B6C23B681EC08AB200785DFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B6C23B691EC08AB200785DFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B6C23B6B1EC08AB200785DFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = TaipeiPark/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.home.TaipeiPark;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B6C23B6C1EC08AB200785DFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = TaipeiPark/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.home.TaipeiPark;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B6C23B4B1EC08AB100785DFA /* Build configuration list for PBXProject "TaipeiPark" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B6C23B681EC08AB200785DFA /* Debug */,
+				B6C23B691EC08AB200785DFA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B6C23B6A1EC08AB200785DFA /* Build configuration list for PBXNativeTarget "TaipeiPark" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B6C23B6B1EC08AB200785DFA /* Debug */,
+				B6C23B6C1EC08AB200785DFA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B6C23B5F1EC08AB200785DFA /* TaipeiPark.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B6C23B601EC08AB200785DFA /* TaipeiPark.xcdatamodel */,
+			);
+			currentVersion = B6C23B601EC08AB200785DFA /* TaipeiPark.xcdatamodel */;
+			path = TaipeiPark.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = B6C23B481EC08AB100785DFA /* Project object */;
+}
