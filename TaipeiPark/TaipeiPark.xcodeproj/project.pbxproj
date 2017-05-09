@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B6B998711EC1EF36007DEF37 /* RelatedParkCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B998701EC1EF36007DEF37 /* RelatedParkCollectionViewCell.m */; };
 		B6C23B551EC08AB200785DFA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B6C23B541EC08AB200785DFA /* main.m */; };
 		B6C23B581EC08AB200785DFA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B6C23B571EC08AB200785DFA /* AppDelegate.m */; };
 		B6C23B5E1EC08AB200785DFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6C23B5C1EC08AB200785DFA /* Main.storyboard */; };
@@ -23,6 +24,8 @@
 /* Begin PBXFileReference section */
 		32FFE8382B52841FA3B2D61B /* Pods-TaipeiPark.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaipeiPark.release.xcconfig"; path = "Pods/Target Support Files/Pods-TaipeiPark/Pods-TaipeiPark.release.xcconfig"; sourceTree = "<group>"; };
 		4E19FE1E6258A4791DE7301F /* libPods-TaipeiPark.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TaipeiPark.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6B9986F1EC1EF36007DEF37 /* RelatedParkCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RelatedParkCollectionViewCell.h; sourceTree = "<group>"; };
+		B6B998701EC1EF36007DEF37 /* RelatedParkCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RelatedParkCollectionViewCell.m; sourceTree = "<group>"; };
 		B6C23B501EC08AB100785DFA /* TaipeiPark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaipeiPark.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6C23B541EC08AB200785DFA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B6C23B561EC08AB200785DFA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -64,6 +67,17 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		B6B998721EC1F86B007DEF37 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B6C23B701EC093C500785DFA /* ParkDataTableViewCell.h */,
+				B6C23B711EC093C500785DFA /* ParkDataTableViewCell.m */,
+				B6B9986F1EC1EF36007DEF37 /* RelatedParkCollectionViewCell.h */,
+				B6B998701EC1EF36007DEF37 /* RelatedParkCollectionViewCell.m */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		B6C23B471EC08AB100785DFA = {
 			isa = PBXGroup;
 			children = (
@@ -93,8 +107,7 @@
 				B6C23B6E1EC08D8900785DFA /* MainTableViewController.m */,
 				B6C36E2D1EC1526E00232B19 /* ParkDetailViewController.h */,
 				B6C36E2E1EC1526E00232B19 /* ParkDetailViewController.m */,
-				B6C23B701EC093C500785DFA /* ParkDataTableViewCell.h */,
-				B6C23B711EC093C500785DFA /* ParkDataTableViewCell.m */,
+				B6B998721EC1F86B007DEF37 /* Cells */,
 				B6C23B5C1EC08AB200785DFA /* Main.storyboard */,
 				B6C23B621EC08AB200785DFA /* Assets.xcassets */,
 				B6C23B641EC08AB200785DFA /* LaunchScreen.storyboard */,
@@ -243,6 +256,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6B998711EC1EF36007DEF37 /* RelatedParkCollectionViewCell.m in Sources */,
 				B6C23B6F1EC08D8900785DFA /* MainTableViewController.m in Sources */,
 				B6C23B721EC093C500785DFA /* ParkDataTableViewCell.m in Sources */,
 				B6C23B611EC08AB200785DFA /* TaipeiPark.xcdatamodeld in Sources */,

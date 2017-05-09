@@ -144,6 +144,7 @@ static NSString *const API_URL = @"http://data.taipei/opendata/datalist/apiAcces
         NSIndexPath *indexPath = (NSIndexPath *)sender;
         ParkDetailViewController *destVC = segue.destinationViewController;
         destVC.parkDetailData = self.parkDataArray[indexPath.section][indexPath.row];
+        destVC.relatedParkData = self.parkDataArray[indexPath.section];
     }
 }
 

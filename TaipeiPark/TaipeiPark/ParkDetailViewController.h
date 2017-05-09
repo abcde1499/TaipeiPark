@@ -11,5 +11,6 @@
 @interface ParkDetailViewController : UIViewController
 
 @property (strong, nonatomic) NSDictionary *parkDetailData;
+@property (strong, nonatomic) NSMutableArray *relatedParkData;
 
 @end
