@@ -70,7 +70,6 @@
                                     <outlet property="name" destination="qhT-qo-wZ7" id="xJ7-e3-yq2"/>
                                     <outlet property="parkName" destination="HqA-tn-KWr" id="Dv6-V3-51a"/>
                                     <outlet property="thumbnail" destination="H1i-ol-q7z" id="s6q-gd-zVp"/>
-                                    <segue destination="fTD-sB-JIz" kind="show" id="fPT-5o-yN2"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -87,15 +86,18 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="fTD-sB-JIz" kind="show" identifier="showParkDetailSegue" id="HvU-hX-qfQ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VQK-DG-Rhj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1020" y="240.62968515742131"/>
         </scene>
-        <!--View Controller-->
+        <!--Park Detail View Controller-->
         <scene sceneID="bgp-kf-QS6">
             <objects>
-                <viewController id="fTD-sB-JIz" sceneMemberID="viewController">
+                <viewController id="fTD-sB-JIz" customClass="ParkDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NMm-6G-uaY"/>
                         <viewControllerLayoutGuide type="bottom" id="2hh-m4-A2N"/>
@@ -103,12 +105,66 @@
                     <view key="view" contentMode="scaleToFill" id="oL0-TK-bK0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JLk-1j-Ad5">
+                                <rect key="frame" x="0.0" y="64" width="375" height="167"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="parkName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YZK-yP-7xt">
+                                <rect key="frame" x="16" y="239" width="75" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCg-Zx-aZ4">
+                                <rect key="frame" x="16" y="266.5" width="50" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="opentime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5vq-p2-fnw">
+                                <rect key="frame" x="16" y="298.5" width="60.5" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="YqF-NX-Vcj">
+                                <rect key="frame" x="16" y="323.5" width="343" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5vq-p2-fnw" firstAttribute="top" secondItem="bCg-Zx-aZ4" secondAttribute="bottom" constant="8" symbolic="YES" id="2rg-lt-71e"/>
+                            <constraint firstItem="JLk-1j-Ad5" firstAttribute="top" secondItem="NMm-6G-uaY" secondAttribute="bottom" id="3Yw-qi-JOZ"/>
+                            <constraint firstItem="JLk-1j-Ad5" firstAttribute="centerX" secondItem="oL0-TK-bK0" secondAttribute="centerX" id="81T-xD-SyF"/>
+                            <constraint firstItem="YqF-NX-Vcj" firstAttribute="top" secondItem="5vq-p2-fnw" secondAttribute="bottom" constant="8" symbolic="YES" id="FfS-m5-rPU"/>
+                            <constraint firstItem="YZK-yP-7xt" firstAttribute="leading" secondItem="oL0-TK-bK0" secondAttribute="leadingMargin" id="QMf-ho-Oar"/>
+                            <constraint firstItem="bCg-Zx-aZ4" firstAttribute="leading" secondItem="YZK-yP-7xt" secondAttribute="leading" id="XLs-kq-QHQ"/>
+                            <constraint firstItem="bCg-Zx-aZ4" firstAttribute="top" secondItem="YZK-yP-7xt" secondAttribute="bottom" constant="8" symbolic="YES" id="aJU-dy-6uj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YqF-NX-Vcj" secondAttribute="trailing" id="c3B-1C-cDj"/>
+                            <constraint firstItem="YqF-NX-Vcj" firstAttribute="height" secondItem="oL0-TK-bK0" secondAttribute="height" multiplier="0.3" id="dbr-Z8-9cg"/>
+                            <constraint firstItem="JLk-1j-Ad5" firstAttribute="height" secondItem="oL0-TK-bK0" secondAttribute="height" multiplier="0.25" id="hEV-0p-p7W"/>
+                            <constraint firstItem="JLk-1j-Ad5" firstAttribute="width" secondItem="oL0-TK-bK0" secondAttribute="width" id="lR1-da-zrw"/>
+                            <constraint firstItem="YqF-NX-Vcj" firstAttribute="leading" secondItem="5vq-p2-fnw" secondAttribute="leading" id="m3h-hh-7HQ"/>
+                            <constraint firstItem="YZK-yP-7xt" firstAttribute="top" secondItem="JLk-1j-Ad5" secondAttribute="bottom" constant="8" symbolic="YES" id="qbV-eh-8Xx"/>
+                            <constraint firstItem="5vq-p2-fnw" firstAttribute="leading" secondItem="bCg-Zx-aZ4" secondAttribute="leading" id="s6e-zR-dBS"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="introduction" destination="YqF-NX-Vcj" id="v5H-ZY-8fL"/>
+                        <outlet property="name" destination="bCg-Zx-aZ4" id="h17-Bn-4MI"/>
+                        <outlet property="openTime" destination="5vq-p2-fnw" id="okY-yu-vbR"/>
+                        <outlet property="parkImage" destination="JLk-1j-Ad5" id="7m5-gd-jR8"/>
+                        <outlet property="parkName" destination="YZK-yP-7xt" id="nya-Ah-sZ5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xnQ-B1-9SY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1780" y="242"/>
+            <point key="canvasLocation" x="1780" y="241.52923538230885"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HtA-gu-O8g">

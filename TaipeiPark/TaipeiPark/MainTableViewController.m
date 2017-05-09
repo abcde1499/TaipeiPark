@@ -9,6 +9,8 @@
 #import "MainTableViewController.h"
 #import "ParkDataTableViewCell.h"
 #import "AFNetworking.h"
+#import "ParkDetailViewController.h"
+#import "Utility.h"
 
 @interface MainTableViewController ()
 
@@ -16,24 +18,21 @@
 
 @end
 
+static NSString *const API_URL = @"http://data.taipei/opendata/datalist/apiAccess?scope=resourceAquire&rid=bf073841-c734-49bf-a97f-3757a6013812";
+
 @implementation MainTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 
     self.tableView.estimatedRowHeight = 80.0;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
 }
+
 - (IBAction)getParkDataButtonClicked:(UIBarButtonItem *)sender {
     NSLog(@"getParkDataButtonClicked");
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    [manager GET:@"http://data.taipei/opendata/datalist/apiAccess?scope=resourceAquire&rid=bf073841-c734-49bf-a97f-3757a6013812"
+    [manager GET:API_URL
       parameters:nil
         progress:nil
          success:^(NSURLSessionTask *task, id responseObject) {
@@ -48,6 +47,7 @@
              }
          } failure:^(NSURLSessionTask *operation, NSError *error) {
              NSLog(@"Error: %@", error);
+             // TODO: show alert to ask for retry
          }];
 }
 
@@ -79,15 +79,7 @@
         NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
         UIImage *img = [UIImage imageWithData:imageData];
 
-        // Create a graphics image context
-        UIGraphicsBeginImageContext(cell.thumbnail.bounds.size);
-        // Tell the old image to draw in this new context, with the desired
-        // new size
-        [img drawInRect:CGRectMake(0,0, cell.thumbnail.bounds.size.width, cell.thumbnail.bounds.size.height)];
-        // Get the new image from the context
-        UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
-        // End the context
-        UIGraphicsEndImageContext();
+        UIImage *newImage = [Utility imageCompressWithSimple:img scaledToSize:cell.thumbnail.bounds.size];
 
         dispatch_async(dispatch_get_main_queue(), ^{
             // Update the UI
@@ -104,11 +96,19 @@
 }
 
 
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:@"showParkDetailSegue" sender:indexPath];
+}
+
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-    NSLog(@"prepareForSegue");
+    if ([segue.identifier isEqualToString:@"showParkDetailSegue"]) {
+        //NSLog(@"showParkDetailSegue");
+        NSIndexPath *indexPath = (NSIndexPath *)sender;
+        ParkDetailViewController *destVC = segue.destinationViewController;
+        destVC.parkDetailData = self.parkDataArray[indexPath.row];
+    }
 }
 
 
