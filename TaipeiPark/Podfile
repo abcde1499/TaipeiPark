@@ -3,4 +3,5 @@ platform :ios, '8.0'
 
 target 'TaipeiPark' do
 pod 'AFNetworking', '~> 3.0'
+pod 'SVProgressHUD'
 end

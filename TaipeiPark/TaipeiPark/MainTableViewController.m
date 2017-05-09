@@ -9,6 +9,7 @@
 #import "MainTableViewController.h"
 #import "ParkDataTableViewCell.h"
 #import "AFNetworking.h"
+#import "SVProgressHUD.h"
 #import "ParkDetailViewController.h"
 #import "Utility.h"
 
@@ -34,13 +35,16 @@ static NSString *const API_URL = @"http://data.taipei/opendata/datalist/apiAcces
 - (IBAction)getParkDataButtonClicked:(UIBarButtonItem *)sender {
     NSLog(@"getParkDataButtonClicked");
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+    [SVProgressHUD show];
     [manager GET:API_URL
       parameters:nil
         progress:nil
          success:^(NSURLSessionTask *task, id responseObject) {
+             [SVProgressHUD dismiss];
              if ([responseObject isKindOfClass:[NSDictionary class]]) {
                  NSDictionary *responseDict = responseObject;
-                 NSArray *resultsArray = [[responseObject objectForKey:@"result"] objectForKey:@"results"];
+                 NSArray *resultsArray = [[responseDict objectForKey:@"result"] objectForKey:@"results"];
 
                  // Sort reulstsArray by ParkName
                  NSSortDescriptor *sd1 = [[NSSortDescriptor alloc] initWithKey:@"ParkName" ascending:YES];
@@ -67,9 +71,19 @@ static NSString *const API_URL = @"http://data.taipei/opendata/datalist/apiAcces
                  [self.tableView reloadData];
              }
          } failure:^(NSURLSessionTask *operation, NSError *error) {
+             [SVProgressHUD dismiss];
              NSLog(@"Error: %@", error);
              // TODO: show alert to ask for retry
+             [self showAlert];
          }];
+}
+
+- (void)showAlert {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"伺服器錯誤" message:@"請重新取得一次" preferredStyle:  UIAlertControllerStyleAlert];
+
+    [alert addAction:[UIAlertAction actionWithTitle:@"確定" style:UIAlertActionStyleDefault handler:nil ]];
+
+    [self presentViewController:alert animated:true completion:nil];
 }
 
 #pragma mark - Table view data source
