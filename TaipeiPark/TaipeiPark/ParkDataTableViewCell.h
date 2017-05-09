@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface ParkDataTableViewCell : UITableViewCell
+
 @property (weak, nonatomic) IBOutlet UILabel *parkName;
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UILabel *introduction;
+@property (weak, nonatomic) IBOutlet UIImageView *thumbnail;
 
 @end
