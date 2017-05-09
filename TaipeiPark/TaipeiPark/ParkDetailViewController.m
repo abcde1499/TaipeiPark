@@ -45,6 +45,10 @@
     self.introduction.text = [self.parkDetailData objectForKey:@"Introduction"];
 }
 
+- (void)viewDidLayoutSubviews {
+    [self.introduction setContentOffset:CGPointZero animated:NO];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

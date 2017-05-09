@@ -27,6 +27,8 @@ static NSString *const API_URL = @"http://data.taipei/opendata/datalist/apiAcces
 
     self.tableView.estimatedRowHeight = 80.0;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
+
+    self.parkDataArray = [NSMutableArray array];
 }
 
 - (IBAction)getParkDataButtonClicked:(UIBarButtonItem *)sender {
@@ -38,11 +40,30 @@ static NSString *const API_URL = @"http://data.taipei/opendata/datalist/apiAcces
          success:^(NSURLSessionTask *task, id responseObject) {
              if ([responseObject isKindOfClass:[NSDictionary class]]) {
                  NSDictionary *responseDict = responseObject;
-                 /* do something with responseDict */
-                 NSLog(@"isKindOfClass Dict: ");
-                 //NSLog(@"RESULT: %@", [[responseObject objectForKey:@"result"] objectForKey:@"results"]);
-                 //TODO: Memory Cycle?
-                 self.parkDataArray = [[responseObject objectForKey:@"result"] objectForKey:@"results"];
+                 NSArray *resultsArray = [[responseObject objectForKey:@"result"] objectForKey:@"results"];
+
+                 // Sort reulstsArray by ParkName
+                 NSSortDescriptor *sd1 = [[NSSortDescriptor alloc] initWithKey:@"ParkName" ascending:YES];
+                 resultsArray = [resultsArray sortedArrayUsingDescriptors:@[sd1]];
+
+                 NSMutableArray *tmpArray = [NSMutableArray array];
+
+                 for(int i = 0; i < resultsArray.count; i++) {
+                     if (i > 0) {
+                         if ([[resultsArray[i] objectForKey:@"ParkName"] isEqualToString: [resultsArray[i-1] objectForKey:@"ParkName"]]) {
+                             [tmpArray addObject:resultsArray[i]];
+                         }
+                         else {
+                             [self.parkDataArray addObject:[NSArray arrayWithArray:tmpArray]];
+                             [tmpArray removeAllObjects];
+                             [tmpArray addObject:resultsArray[i]];
+                         }
+                     }
+                     else {
+                         [tmpArray addObject:resultsArray[i]];
+                     }
+                 }
+
                  [self.tableView reloadData];
              }
          } failure:^(NSURLSessionTask *operation, NSError *error) {
@@ -54,26 +75,29 @@ static NSString *const API_URL = @"http://data.taipei/opendata/datalist/apiAcces
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.parkDataArray.count;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return [self.parkDataArray[section][0] objectForKey:@"ParkName"];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSArray *data = self.parkDataArray[section];
+    return data.count;
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ParkDataTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ParkCell" forIndexPath:indexPath];
-    
+
     // Configure the cell...
-    cell.parkName.text = [self.parkDataArray[indexPath.row] objectForKey:@"ParkName"];
-    cell.parkName.adjustsFontSizeToFitWidth = NO;
-    cell.name.text = [self.parkDataArray[indexPath.row] objectForKey:@"Name"];
-    //cell.name.adjustsFontSizeToFitWidth = YES;
-    cell.introduction.text = [self.parkDataArray[indexPath.row] objectForKey:@"Introduction"];
+    cell.parkName.text = [self.parkDataArray[indexPath.section][indexPath.row] objectForKey:@"ParkName"];
+    cell.name.text = [self.parkDataArray[indexPath.section][indexPath.row] objectForKey:@"Name"];
+    cell.introduction.text = [self.parkDataArray[indexPath.section][indexPath.row] objectForKey:@"Introduction"];
     cell.thumbnail.image = nil;
 
-    NSURL *imageURL = [NSURL URLWithString:[self.parkDataArray[indexPath.row] objectForKey:@"Image"]];
+    NSURL *imageURL = [NSURL URLWithString:[self.parkDataArray[indexPath.section][indexPath.row] objectForKey:@"Image"]];
 
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
@@ -95,8 +119,6 @@ static NSString *const API_URL = @"http://data.taipei/opendata/datalist/apiAcces
     return UITableViewAutomaticDimension;
 }
 
-
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self performSegueWithIdentifier:@"showParkDetailSegue" sender:indexPath];
 }
@@ -107,10 +129,9 @@ static NSString *const API_URL = @"http://data.taipei/opendata/datalist/apiAcces
         //NSLog(@"showParkDetailSegue");
         NSIndexPath *indexPath = (NSIndexPath *)sender;
         ParkDetailViewController *destVC = segue.destinationViewController;
-        destVC.parkDetailData = self.parkDataArray[indexPath.row];
+        destVC.parkDetailData = self.parkDataArray[indexPath.section][indexPath.row];
     }
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
