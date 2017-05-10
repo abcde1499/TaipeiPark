@@ -45,15 +45,16 @@ static NSString *cellID = @"RelatedParkCollectionViewCell";
 
     NSURL *imageURL = [NSURL URLWithString:[self.parkDetailData objectForKey:@"Image"]];
 
+    __weak ParkDetailViewController *weakSelf = self;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
         UIImage *img = [UIImage imageWithData:imageData];
 
-        UIImage *newImage = [Utility imageCompressWithSimple:img scaledToSize:self.parkImage.bounds.size];
+        UIImage *newImage = [Utility imageCompressWithSimple:img scaledToSize:weakSelf.parkImage.bounds.size];
 
         dispatch_async(dispatch_get_main_queue(), ^{
             // Update the UI
-            self.parkImage.image = newImage;
+            weakSelf.parkImage.image = newImage;
         });
     });
 
@@ -79,22 +80,8 @@ static NSString *cellID = @"RelatedParkCollectionViewCell";
 
     RelatedParkCollectionViewCell *cell =  [collectionView dequeueReusableCellWithReuseIdentifier:cellID forIndexPath:indexPath];
 
-    // Configure the cell
-    NSURL *imageURL = [NSURL URLWithString:[self.copiedRelatedParkData[indexPath.row] objectForKey:@"Image"]];
+    [cell configureWithData:self.copiedRelatedParkData[indexPath.row]];
 
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-        NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
-        UIImage *img = [UIImage imageWithData:imageData];
-
-        UIImage *newImage = [Utility imageCompressWithSimple:img scaledToSize:cell.relatedParkImageView.bounds.size];
-
-        dispatch_async(dispatch_get_main_queue(), ^{
-            // Update the UI
-            cell.relatedParkImageView.image = newImage;
-        });
-    });
-
-    cell.relatedParkName.text = [self.copiedRelatedParkData[indexPath.row] objectForKey:@"Name"];
     return cell;
 }
 

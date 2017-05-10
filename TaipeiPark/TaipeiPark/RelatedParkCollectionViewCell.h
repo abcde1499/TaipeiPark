@@ -13,4 +13,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *relatedParkImageView;
 @property (weak, nonatomic) IBOutlet UILabel *relatedParkName;
 
+- (void)configureWithData:(NSDictionary *)data;
+
 @end

@@ -15,4 +15,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *introduction;
 @property (weak, nonatomic) IBOutlet UIImageView *thumbnail;
 
+- (void)configureWithData:(NSDictionary *)data;
+
 @end

@@ -34,6 +34,7 @@ static NSString *const API_URL = @"http://data.taipei/opendata/datalist/apiAcces
 
 - (IBAction)getParkDataButtonClicked:(UIBarButtonItem *)sender {
     NSLog(@"getParkDataButtonClicked");
+    __weak MainTableViewController *weakSelf = self;
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
     [SVProgressHUD show];
@@ -58,7 +59,7 @@ static NSString *const API_URL = @"http://data.taipei/opendata/datalist/apiAcces
                              [tmpArray addObject:resultsArray[i]];
                          }
                          else {
-                             [self.parkDataArray addObject:[NSArray arrayWithArray:tmpArray]];
+                             [weakSelf.parkDataArray addObject:[NSArray arrayWithArray:tmpArray]];
                              [tmpArray removeAllObjects];
                              [tmpArray addObject:resultsArray[i]];
                          }
@@ -68,22 +69,18 @@ static NSString *const API_URL = @"http://data.taipei/opendata/datalist/apiAcces
                      }
                  }
 
-                 [self.tableView reloadData];
+                 [weakSelf.tableView reloadData];
              }
          } failure:^(NSURLSessionTask *operation, NSError *error) {
              [SVProgressHUD dismiss];
              NSLog(@"Error: %@", error);
              // TODO: show alert to ask for retry
-             [self showAlert];
+             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"伺服器錯誤" message:@"請重新取得一次" preferredStyle:  UIAlertControllerStyleAlert];
+
+             [alert addAction:[UIAlertAction actionWithTitle:@"確定" style:UIAlertActionStyleDefault handler:nil ]];
+
+             [weakSelf presentViewController:alert animated:true completion:nil];
          }];
-}
-
-- (void)showAlert {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"伺服器錯誤" message:@"請重新取得一次" preferredStyle:  UIAlertControllerStyleAlert];
-
-    [alert addAction:[UIAlertAction actionWithTitle:@"確定" style:UIAlertActionStyleDefault handler:nil ]];
-
-    [self presentViewController:alert animated:true completion:nil];
 }
 
 #pragma mark - Table view data source
@@ -105,25 +102,7 @@ static NSString *const API_URL = @"http://data.taipei/opendata/datalist/apiAcces
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ParkDataTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ParkCell" forIndexPath:indexPath];
 
-    // Configure the cell...
-    cell.parkName.text = [self.parkDataArray[indexPath.section][indexPath.row] objectForKey:@"ParkName"];
-    cell.name.text = [self.parkDataArray[indexPath.section][indexPath.row] objectForKey:@"Name"];
-    cell.introduction.text = [self.parkDataArray[indexPath.section][indexPath.row] objectForKey:@"Introduction"];
-    cell.thumbnail.image = nil;
-
-    NSURL *imageURL = [NSURL URLWithString:[self.parkDataArray[indexPath.section][indexPath.row] objectForKey:@"Image"]];
-
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-        NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
-        UIImage *img = [UIImage imageWithData:imageData];
-
-        UIImage *newImage = [Utility imageCompressWithSimple:img scaledToSize:cell.thumbnail.bounds.size];
-
-        dispatch_async(dispatch_get_main_queue(), ^{
-            // Update the UI
-            cell.thumbnail.image = newImage;
-        });
-    });
+    [cell configureWithData:self.parkDataArray[indexPath.section][indexPath.row]];
 
     return cell;
 }
