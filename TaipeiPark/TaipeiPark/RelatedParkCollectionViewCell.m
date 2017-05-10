@@ -13,6 +13,10 @@
 
 
 - (void)configureWithData:(NSDictionary *)data {
+    self.relatedParkName.text = [data objectForKey:@"Name"];
+    self.relatedParkImageView.image = nil;
+    self.tag = [[data objectForKey:@"_id"] integerValue];
+
     NSURL *imageURL = [NSURL URLWithString:[data objectForKey:@"Image"]];
 
     __weak RelatedParkCollectionViewCell *weakSelf = self;
@@ -24,11 +28,12 @@
 
         dispatch_async(dispatch_get_main_queue(), ^{
             // Update the UI
-            weakSelf.relatedParkImageView.image = newImage;
+            if(weakSelf.tag == [[data objectForKey:@"_id"] integerValue]) {
+                weakSelf.relatedParkImageView.image = newImage;
+            }
         });
     });
 
-    self.relatedParkName.text = [data objectForKey:@"Name"];
 }
 
 

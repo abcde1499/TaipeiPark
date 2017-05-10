@@ -30,6 +30,8 @@
 
     NSURL *imageURL = [NSURL URLWithString:[data objectForKey:@"Image"]];
 
+    self.tag = [[data objectForKey:@"_id"] integerValue];
+
     __weak ParkDataTableViewCell *weakSelf = self;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
@@ -39,7 +41,9 @@
 
         dispatch_async(dispatch_get_main_queue(), ^{
             // Update the UI
-            weakSelf.thumbnail.image = newImage;
+            if(weakSelf.tag == [[data objectForKey:@"_id"] integerValue]) {
+                weakSelf.thumbnail.image = newImage;
+            }
         });
     });
 }

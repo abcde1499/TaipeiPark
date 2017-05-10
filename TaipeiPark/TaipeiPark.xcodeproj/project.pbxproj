@@ -67,6 +67,29 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		B632DF3F1EC2D052009987BD /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B6C23B6D1EC08D8900785DFA /* MainTableViewController.h */,
+				B6C23B6E1EC08D8900785DFA /* MainTableViewController.m */,
+				B6C36E2D1EC1526E00232B19 /* ParkDetailViewController.h */,
+				B6C36E2E1EC1526E00232B19 /* ParkDetailViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		B632DF401EC2D095009987BD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B6C23B561EC08AB200785DFA /* AppDelegate.h */,
+				B6C23B571EC08AB200785DFA /* AppDelegate.m */,
+				B6C23B621EC08AB200785DFA /* Assets.xcassets */,
+				B6C23B641EC08AB200785DFA /* LaunchScreen.storyboard */,
+				B6C23B671EC08AB200785DFA /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		B6B998721EC1F86B007DEF37 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -99,19 +122,12 @@
 		B6C23B521EC08AB100785DFA /* TaipeiPark */ = {
 			isa = PBXGroup;
 			children = (
-				B6C23B561EC08AB200785DFA /* AppDelegate.h */,
-				B6C23B571EC08AB200785DFA /* AppDelegate.m */,
 				B6C36E341EC166FB00232B19 /* Utility.h */,
 				B6C36E321EC166ED00232B19 /* Utility.m */,
-				B6C23B6D1EC08D8900785DFA /* MainTableViewController.h */,
-				B6C23B6E1EC08D8900785DFA /* MainTableViewController.m */,
-				B6C36E2D1EC1526E00232B19 /* ParkDetailViewController.h */,
-				B6C36E2E1EC1526E00232B19 /* ParkDetailViewController.m */,
+				B632DF3F1EC2D052009987BD /* ViewControllers */,
 				B6B998721EC1F86B007DEF37 /* Cells */,
 				B6C23B5C1EC08AB200785DFA /* Main.storyboard */,
-				B6C23B621EC08AB200785DFA /* Assets.xcassets */,
-				B6C23B641EC08AB200785DFA /* LaunchScreen.storyboard */,
-				B6C23B671EC08AB200785DFA /* Info.plist */,
+				B632DF401EC2D095009987BD /* Supporting Files */,
 				B6C23B5F1EC08AB200785DFA /* TaipeiPark.xcdatamodeld */,
 				B6C23B531EC08AB200785DFA /* Supporting Files */,
 			);
